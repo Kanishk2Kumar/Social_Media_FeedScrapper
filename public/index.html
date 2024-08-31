@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Scraper</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="body_background">
+    <div class="container">
+        <h1>Social Media Scraper</h1>
+        <div class="icon-grid">
+            <div class="icon-card" onclick="showForm('Instagram')">
+                <img src="images/Instagram_icon.png" alt="Instagram" class="icon">
+                <p>Instagram</p>
+            </div>
+            <!-- Other platforms omitted for brevity -->
+        </div>
+
+        <!-- Form for Scraping -->
+        <div id="formContainer" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn" onclick="hideForm()">&times;</span>
+                <h2 id="formTitle"></h2>
+                <form id="scrapeForm" enctype="multipart/form-data" onsubmit="submitForm(event)">
+                    <label for="inputType">Choose Input Type:</label>
+                    <select id="inputType" onchange="toggleInputType()">
+                        <option value="single">Single Username & Password</option>
+                        <option value="multiple">Upload Excel File</option>
+                    </select>
+
+                    <!-- Single input fields -->
+                    <div id="singleInputFields">
+                        <input type="text" id="username" name="username" placeholder="Username" required>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                    </div>
+
+                    <!-- Excel file upload -->
+                    <div id="fileInputField" class="hidden">
+                        <input type="file" id="fileUpload" name="fileUpload" accept=".xlsx, .xls">
+                    </div>
+
+                    <!-- Target keyword input -->
+                    <input type="text" id="keyword" name="keyword" placeholder="Keyword" required>
+                    
+                    <button type="submit" class="submit-btn">Start Scraping</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script> <!-- Include the script -->
+</body>
+</html>
